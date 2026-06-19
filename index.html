@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>MindDo AI · 上市宣传计划 (Go-to-Market Plan)</title>
+<meta name="description" content="MindDo AI 新产品上市整体宣传计划：战略定位、目标人群、信息架构、时间线、渠道矩阵、内容日历、准备清单、预算、KPI 与合规。" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&family=Noto+Serif+SC:wght@500;700;900&display=swap" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root{
+    --bg:#0b1020; --bg2:#0f1530; --panel:#141b38; --panel2:#1b2447;
+    --ink:#eaf0ff; --muted:#9aa6cf; --line:rgba(255,255,255,.10);
+    --brand:#6c8bff; --brand2:#a06bff; --mint:#37e0c2; --amber:#ffce5c; --rose:#ff7a93;
+    --shadow:0 18px 50px rgba(0,0,0,.45);
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:radial-gradient(1200px 600px at 80% -10%, rgba(160,107,255,.18), transparent 55%),
+                       radial-gradient(900px 500px at -5% 5%, rgba(108,139,255,.16), transparent 50%),
+                       var(--bg);
+    color:var(--ink); font-family:"Noto Sans SC",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    line-height:1.75; -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--brand); text-decoration:none}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 22px}
+  h1,h2,h3{font-family:"Noto Serif SC",serif; line-height:1.25; margin:.2em 0}
+  h2{font-size:clamp(24px,3.4vw,34px); letter-spacing:.5px}
+  h3{font-size:19px}
+  .eyebrow{font-size:12px; letter-spacing:3px; text-transform:uppercase; color:var(--brand); font-weight:700}
+  .muted{color:var(--muted)}
+
+  /* NAV */
+  nav{position:sticky; top:0; z-index:50; backdrop-filter:blur(12px);
+      background:rgba(11,16,32,.72); border-bottom:1px solid var(--line)}
+  .nav-in{display:flex; align-items:center; gap:14px; height:60px; max-width:var(--maxw); margin:0 auto; padding:0 22px}
+  .logo{font-family:"Noto Serif SC"; font-weight:900; font-size:18px; letter-spacing:.5px; white-space:nowrap}
+  .logo b{background:linear-gradient(90deg,var(--brand),var(--brand2)); -webkit-background-clip:text; background-clip:text; color:transparent}
+  .nav-links{display:flex; gap:4px; margin-left:auto; overflow-x:auto; scrollbar-width:none}
+  .nav-links::-webkit-scrollbar{display:none}
+  .nav-links a{color:var(--muted); font-size:13.5px; padding:7px 11px; border-radius:9px; white-space:nowrap; font-weight:500}
+  .nav-links a:hover{color:var(--ink); background:var(--panel)}
+  .nav-links a.active{color:var(--ink); background:linear-gradient(90deg,rgba(108,139,255,.25),rgba(160,107,255,.25))}
+
+  /* HERO */
+  header.hero{padding:72px 0 36px; position:relative; overflow:hidden}
+  .badge{display:inline-flex; align-items:center; gap:8px; font-size:12.5px; padding:6px 13px; border:1px solid var(--line);
+         border-radius:999px; background:var(--panel); color:var(--muted); margin-bottom:20px}
+  .badge .dot{width:8px;height:8px;border-radius:50%;background:var(--mint); box-shadow:0 0 12px var(--mint)}
+  .hero h1{font-size:clamp(34px,6.2vw,62px); font-weight:900; letter-spacing:.5px}
+  .hero h1 span{background:linear-gradient(90deg,var(--brand),var(--brand2) 60%,var(--mint)); -webkit-background-clip:text; background-clip:text; color:transparent}
+  .hero p.lead{font-size:clamp(16px,2.1vw,20px); color:var(--muted); max-width:760px; margin-top:14px}
+  .hero-meta{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px}
+  .chip{font-size:13px; padding:8px 14px; border-radius:10px; background:var(--panel); border:1px solid var(--line)}
+  .chip b{color:var(--ink)}
+
+  /* SECTIONS */
+  section{padding:54px 0; border-top:1px solid var(--line)}
+  .sec-head{display:flex; flex-direction:column; gap:6px; margin-bottom:26px}
+  .grid{display:grid; gap:16px}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  @media(max-width:860px){.g2,.g3,.g4{grid-template-columns:1fr}}
+  .card{background:linear-gradient(180deg,var(--panel),var(--bg2)); border:1px solid var(--line);
+        border-radius:16px; padding:20px; box-shadow:var(--shadow)}
+  .card h3{margin-top:0}
+  .card .ico{font-size:24px; margin-bottom:6px}
+  .pill{display:inline-block; font-size:11.5px; font-weight:700; letter-spacing:.5px; padding:3px 10px; border-radius:999px;
+        background:rgba(108,139,255,.18); color:#bcc9ff; border:1px solid rgba(108,139,255,.3)}
+  .pill.mint{background:rgba(55,224,194,.14); color:#9af0e0; border-color:rgba(55,224,194,.3)}
+  .pill.amber{background:rgba(255,206,92,.14); color:#ffe2a0; border-color:rgba(255,206,92,.3)}
+  .pill.rose{background:rgba(255,122,147,.14); color:#ffc0cc; border-color:rgba(255,122,147,.3)}
+
+  ul.clean{list-style:none; padding:0; margin:10px 0 0}
+  ul.clean li{position:relative; padding-left:22px; margin:8px 0; color:var(--muted)}
+  ul.clean li::before{content:"▸"; position:absolute; left:0; color:var(--brand)}
+  ul.clean li b{color:var(--ink)}
+
+  /* TIMELINE */
+  .tl{position:relative; margin-top:10px}
+  .phase{display:grid; grid-template-columns:160px 1fr; gap:18px; padding:22px 0; border-top:1px dashed var(--line)}
+  .phase:first-child{border-top:none}
+  @media(max-width:760px){.phase{grid-template-columns:1fr}}
+  .phase .when{position:sticky; top:74px; align-self:start}
+  .phase .when .wk{font-family:"Noto Serif SC"; font-weight:900; font-size:22px}
+  .phase .when .lbl{font-size:13px; color:var(--muted)}
+  .phase .body h3{display:flex; align-items:center; gap:10px; flex-wrap:wrap}
+  .objbar{height:8px; border-radius:6px; background:var(--panel2); overflow:hidden; margin:6px 0 14px}
+  .objbar>i{display:block; height:100%; background:linear-gradient(90deg,var(--brand),var(--brand2))}
+  .deliv{display:grid; grid-template-columns:repeat(2,1fr); gap:10px; margin-top:10px}
+  @media(max-width:600px){.deliv{grid-template-columns:1fr}}
+  .deliv .d{background:var(--panel); border:1px solid var(--line); border-radius:11px; padding:11px 13px; font-size:13.5px}
+  .deliv .d b{display:block; color:var(--ink); margin-bottom:2px}
+
+  /* TABLE */
+  .tablewrap{overflow-x:auto; border:1px solid var(--line); border-radius:14px}
+  table{width:100%; border-collapse:collapse; min-width:640px; font-size:14px}
+  th,td{padding:12px 14px; text-align:left; border-bottom:1px solid var(--line); vertical-align:top}
+  th{background:var(--panel2); color:var(--ink); font-weight:700; font-size:13px; letter-spacing:.4px}
+  tr:last-child td{border-bottom:none}
+  td .muted{font-size:12.5px}
+
+  /* CHECKLIST */
+  .checkbox-group{display:grid; gap:10px}
+  .ck{display:flex; gap:12px; align-items:flex-start; background:var(--panel); border:1px solid var(--line);
+      border-radius:12px; padding:12px 14px; cursor:pointer; transition:.15s}
+  .ck:hover{border-color:rgba(108,139,255,.45)}
+  .ck input{appearance:none; width:20px; height:20px; min-width:20px; margin-top:2px; border:2px solid var(--muted);
+            border-radius:6px; cursor:pointer; position:relative; transition:.15s}
+  .ck input:checked{background:linear-gradient(135deg,var(--brand),var(--brand2)); border-color:transparent}
+  .ck input:checked::after{content:"✓"; position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-size:13px; color:#fff; font-weight:900}
+  .ck.done .t{text-decoration:line-through; color:var(--muted)}
+  .ck .t{font-size:14px}
+  .ck .t small{display:block; color:var(--muted); font-size:12px; margin-top:2px}
+  .progresswrap{display:flex; align-items:center; gap:14px; margin:6px 0 20px; flex-wrap:wrap}
+  .pbar{flex:1; min-width:200px; height:12px; background:var(--panel2); border-radius:8px; overflow:hidden}
+  .pbar>i{display:block; height:100%; width:0; background:linear-gradient(90deg,var(--mint),var(--brand)); transition:width .35s}
+  .pcount{font-weight:700; font-variant-numeric:tabular-nums}
+
+  /* KPI funnel */
+  .funnel{display:flex; flex-direction:column; gap:8px; margin-top:8px}
+  .fstep{display:flex; align-items:center; gap:14px}
+  .fstep .bar{height:42px; border-radius:10px; display:flex; align-items:center; padding:0 14px; color:#08122b; font-weight:700; font-size:14px;
+              background:linear-gradient(90deg,var(--mint),var(--brand2))}
+  .fstep .meta{font-size:13px; color:var(--muted); white-space:nowrap}
+
+  .kfig{font-family:"Noto Serif SC"; font-weight:900; font-size:30px; background:linear-gradient(90deg,var(--brand),var(--mint)); -webkit-background-clip:text; background-clip:text; color:transparent}
+
+  .callout{border-left:3px solid var(--amber); background:rgba(255,206,92,.07); padding:14px 18px; border-radius:0 12px 12px 0; margin:16px 0}
+  .callout.rose{border-color:var(--rose); background:rgba(255,122,147,.07)}
+  .callout.mint{border-color:var(--mint); background:rgba(55,224,194,.07)}
+
+  .chartbox{position:relative; height:300px}
+  .two{display:grid; grid-template-columns:1.1fr .9fr; gap:20px; align-items:center}
+  @media(max-width:860px){.two{grid-template-columns:1fr}}
+
+  footer{padding:48px 0; border-top:1px solid var(--line); color:var(--muted); font-size:13px}
+  .toolbar{position:fixed; right:18px; bottom:18px; display:flex; gap:10px; z-index:60}
+  .btn{background:linear-gradient(90deg,var(--brand),var(--brand2)); color:#fff; border:none; padding:11px 16px; border-radius:12px;
+       font-size:13.5px; font-weight:700; cursor:pointer; box-shadow:var(--shadow); font-family:inherit}
+  .btn.ghost{background:var(--panel); border:1px solid var(--line); color:var(--ink)}
+  @media print{
+    nav,.toolbar{display:none} body{background:#fff; color:#111}
+    .card,.tablewrap{box-shadow:none; break-inside:avoid}
+    section{border-color:#ddd}
+  }
+  .num{font-variant-numeric:tabular-nums}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <div class="logo">Mind<b>Do AI</b> · GTM</div>
+    <div class="nav-links" id="navlinks">
+      <a href="#overview">概览</a>
+      <a href="#audience">人群</a>
+      <a href="#message">信息</a>
+      <a href="#timeline">时间线</a>
+      <a href="#channels">渠道</a>
+      <a href="#content">内容</a>
+      <a href="#checklist">准备清单</a>
+      <a href="#budget">预算</a>
+      <a href="#kpi">KPI</a>
+      <a href="#risk">合规</a>
+      <a href="#team">分工</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="badge"><span class="dot"></span> 市场部 · 新品上市作战计划 · v1.0 · 2026-06-19</span>
+    <h1>MindDo AI<br><span>整体宣传与上市计划</span></h1>
+    <p class="lead">面向中国 K-12 家庭的「孩子的 AI 学习伙伴」。本计划由市场负责人视角制定，覆盖<b>定位 → 人群 → 信息 → 时间线 → 渠道 → 内容 → 物料清单 → 预算 → KPI → 合规 → 团队分工</b>的完整作战地图，可直接执行、可量化、可复盘。</p>
+    <div class="hero-meta">
+      <span class="chip">🎯 旗舰品类：<b>AI 编程素养</b></span>
+      <span class="chip">👨‍👩‍👧 决策人：<b>家长</b>　使用者：<b>孩子</b></span>
+      <span class="chip">💳 变现：<b>家长分层会员</b></span>
+      <span class="chip">⏱ 周期：<b>12 周三阶段</b></span>
+      <span class="chip">⚖️ 红线：<b>双减·非学科·未成年人保护</b></span>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- OVERVIEW -->
+<section id="overview">
+  <div class="sec-head">
+    <span class="eyebrow">01 · Strategy at a glance</span>
+    <h2>一页看懂这次宣传</h2>
+    <p class="muted">先给结论：MindDo AI 的成败不取决于功能多少，而取决于<b>「家长信任 × 可感知的学习成效 × 合规安全」</b>。所有宣传动作都服务这三件事。</p>
+  </div>
+  <div class="grid g3">
+    <div class="card">
+      <div class="ico">🎯</div>
+      <h3>战略目标</h3>
+      <ul class="clean">
+        <li>用<b>免费内容/公开课</b>低成本获客</li>
+        <li>把<b>试用 → 试课 → 首单</b>转化跑通</li>
+        <li>建立<b>家长口碑飞轮</b>作为长期引擎</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="ico">🧩</div>
+      <h3>核心打法</h3>
+      <ul class="clean">
+        <li><b>先窄后宽</b>：单点打透 AI 编程，再扩科技素养</li>
+        <li><b>成效可视</b>：作品/报告让家长「看见进步」</li>
+        <li><b>私域沉淀</b>：把流量沉到企微社群，反复触达</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="ico">📈</div>
+      <h3>北极星指标</h3>
+      <ul class="clean">
+        <li>主线：<b>首单付费家庭数（New Paying Family）</b></li>
+        <li>过程：试课预约数 · 试课到场率 · 试课→付费率</li>
+        <li>健康：CAC、7 日留存、家长 NPS</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout mint">
+    <b>一句话总结：</b>不是「把产品功能讲清楚」，而是「让一位中国家长在 7 天内，亲眼看到自己孩子用 MindDo AI 做出了一个小作品」。看见，才会相信；相信，才会付费；付费后看到成效，才会转介绍。
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section id="audience">
+  <div class="sec-head">
+    <span class="eyebrow">02 · Audience</span>
+    <h2>对谁说话：目标人群画像</h2>
+    <p class="muted">家长是付费决策人，孩子是产品使用者与留存关键。两条线索都要打。</p>
+  </div>
+  <div class="grid g3">
+    <div class="card">
+      <span class="pill">核心人群 · 必拿下</span>
+      <h3>「鸡娃但焦虑」的一线/新一线妈妈</h3>
+      <ul class="clean">
+        <li>孩子 <b>8–14 岁</b>，家庭年收入中产以上</li>
+        <li>痛点：双减后<b>不知道课外学什么才「有用又合规」</b></li>
+        <li>渴望：<b>面向未来</b>的能力、可炫耀的孩子作品</li>
+        <li>触点：小红书、微信群、妈妈社群、公众号</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="pill mint">增长人群 · 放大口碑</span>
+      <h3>理性「科技爸爸」</h3>
+      <ul class="clean">
+        <li>从事 IT/工程/金融，认同 AI 是大势</li>
+        <li>痛点：市面编程课<b>「教语法、不教思维」</b></li>
+        <li>决策方式：看逻辑、看 demo、看成效数据</li>
+        <li>触点：抖音/B站测评、知乎、技术社群</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="pill amber">使用人群 · 决定留存</span>
+      <h3>孩子（最终用户）</h3>
+      <ul class="clean">
+        <li>要的是<b>「好玩、有成就感、能炫耀」</b></li>
+        <li>留存钩子：做出能给同学/爷爷奶奶看的作品</li>
+        <li>反向影响父母续费（「我还想继续做」）</li>
+        <li>触点：产品内激励、作品广场、亲子任务</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout">
+    <b>洞察：</b>中国家长不为「AI 算力」付费，他们为<b>「孩子的未来确定性」和「眼前可见的成长证据」</b>付费。所有素材都要把抽象的 AI 翻译成具体的「孩子做出了什么」。
+  </div>
+</section>
+
+<!-- MESSAGE -->
+<section id="message">
+  <div class="sec-head">
+    <span class="eyebrow">03 · Messaging</span>
+    <h2>说什么：信息架构与价值主张</h2>
+    <p class="muted">一句主张统领，三个支柱支撑，分人群有不同的「钩子」。</p>
+  </div>
+  <div class="card" style="margin-bottom:16px">
+    <span class="pill">品牌主张 · Tagline</span>
+    <h2 style="margin:.3em 0">「MindDo AI —— 每个孩子的 AI 学习伙伴」</h2>
+    <p class="muted" style="margin:0">副线：<b>不是多上一节课，而是多一个一对一、随叫随到、越用越懂你孩子的 AI 伙伴。</b></p>
+  </div>
+  <div class="grid g3">
+    <div class="card">
+      <div class="ico">🧠</div>
+      <h3>支柱一 · 思维而非语法</h3>
+      <p class="muted">教孩子用 AI 解决真实问题，培养拆解、创造、表达——而非死记代码语法。</p>
+    </div>
+    <div class="card">
+      <div class="ico">👀</div>
+      <h3>支柱二 · 成效看得见</h3>
+      <p class="muted">每个阶段产出可分享的作品 + 家长端学习报告，进步「肉眼可见」。</p>
+    </div>
+    <div class="card">
+      <div class="ico">🛡️</div>
+      <h3>支柱三 · 安全又合规</h3>
+      <p class="muted">非学科科技素养定位、未成年人模式、内容护栏，家长放心、政策合规。</p>
+    </div>
+  </div>
+  <div class="tablewrap" style="margin-top:16px">
+    <table>
+      <thead><tr><th>人群</th><th>核心钩子（Hook）</th><th>主行动召唤（CTA）</th></tr></thead>
+      <tbody>
+        <tr><td>焦虑妈妈</td><td>「双减后，到底该让孩子学点什么真正有用又合规的？」</td><td>领取免费 AI 创作公开课</td></tr>
+        <tr><td>科技爸爸</td><td>「别再教语法了——让孩子学会和 AI 一起思考、创造。」</td><td>看一节真实试课 / Demo</td></tr>
+        <tr><td>孩子</td><td>「7 天，做出你自己的第一个 AI 小游戏。」</td><td>开始第一个免费任务</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="sec-head">
+    <span class="eyebrow">04 · Timeline</span>
+    <h2>什么时候做：12 周三阶段时间线</h2>
+    <p class="muted">T 周 = 正式公开发布周。下方为以发布日为锚点的倒计时与顺推安排。每阶段都有明确目标、交付物与 Go/No-Go 门槛。</p>
+  </div>
+
+  <div class="tl">
+    <!-- Phase 0 -->
+    <div class="phase">
+      <div class="when">
+        <div class="wk">T-6 ~ T-4</div>
+        <div class="lbl">第 1 阶段 · 筹备 Foundation</div>
+      </div>
+      <div class="body">
+        <h3>夯实地基与素材 <span class="pill amber">内部</span></h3>
+        <div class="objbar"><i style="width:100%"></i></div>
+        <p class="muted" style="margin-top:0">目标：把「能讲清楚、能转化、能追踪」的基础设施全部就位。不对外发声。</p>
+        <div class="deliv">
+          <div class="d"><b>定位与信息</b>确定 tagline、三支柱、分人群话术、命名/Logo/VI</div>
+          <div class="d"><b>落地页 + 数据</b>官网/落地页上线，埋点、UTM、转化追踪打通</div>
+          <div class="d"><b>核心素材</b>主视频(60s)、产品 demo、案例样片、KV 主视觉</div>
+          <div class="d"><b>转化链路</b>试用→试课→首单链路压测，私域承接（企微+社群）就位</div>
+        </div>
+        <div class="callout rose" style="margin-bottom:0"><b>Go/No-Go①：</b>落地页转化漏斗能跑通 + 至少 1 个真实孩子作品案例完成，才进入预热。</div>
+      </div>
+    </div>
+
+    <!-- Phase 1 -->
+    <div class="phase">
+      <div class="when">
+        <div class="wk">T-3 ~ T-1</div>
+        <div class="lbl">第 2 阶段 · 预热 Teaser</div>
+      </div>
+      <div class="body">
+        <h3>制造期待与蓄水 <span class="pill mint">蓄水</span></h3>
+        <div class="objbar"><i style="width:75%"></i></div>
+        <p class="muted" style="margin-top:0">目标：用内容种草建立认知，蓄积 <b>≥ 3,000 条等待名单 / 私域用户</b>。</p>
+        <div class="deliv">
+          <div class="d"><b>悬念预热</b>小红书/抖音「孩子 vs AI」系列短视频开播</div>
+          <div class="d"><b>种子用户</b>招募 30–50 个家庭内测，沉淀真实口碑与素材</div>
+          <div class="d"><b>KOL 铺垫</b>母婴/教育 KOC 体验装寄送，约定发布档期</div>
+          <div class="d"><b>预约蓄水</b>「内测申请/优先体验名额」表单蓄客 + 社群运营</div>
+        </div>
+        <div class="callout rose" style="margin-bottom:0"><b>Go/No-Go②：</b>等待名单达标 + 内测家庭 NPS≥40，确认发布日；否则延期 1 周补蓄水。</div>
+      </div>
+    </div>
+
+    <!-- Phase 2 -->
+    <div class="phase">
+      <div class="when">
+        <div class="wk">T 周</div>
+        <div class="lbl">第 3 阶段 · 引爆 Launch</div>
+      </div>
+      <div class="body">
+        <h3>集中火力公开发布 <span class="pill">高峰</span></h3>
+        <div class="objbar"><i style="width:100%"></i></div>
+        <p class="muted" style="margin-top:0">目标：发布周集中曝光，把蓄水池一次性转化为试用与首单。</p>
+        <div class="deliv">
+          <div class="d"><b>发布日 D-Day</b>官宣长图文 + 创始人/产品发布短片同步全渠道</div>
+          <div class="d"><b>KOL 矩阵</b>母婴+科技+教育 KOL/KOC 同周集中发布</div>
+          <div class="d"><b>限时钩子</b>首发限时免费试课 / 早鸟会员价 / 老带新双倍</div>
+          <div class="d"><b>付费放大</b>信息流/搜索投放对蓄水人群与相似人群放量</div>
+        </div>
+        <div class="callout rose" style="margin-bottom:0"><b>Go/No-Go③：</b>发布周末复盘 CAC 与试课→付费率；达标则放量，未达标则先优化转化再加预算。</div>
+      </div>
+    </div>
+
+    <!-- Phase 3 -->
+    <div class="phase">
+      <div class="when">
+        <div class="wk">T+1 ~ T+5</div>
+        <div class="lbl">第 4 阶段 · 增长 Scale</div>
+      </div>
+      <div class="body">
+        <h3>口碑飞轮与放量复购 <span class="pill mint">持续</span></h3>
+        <div class="objbar"><i style="width:85%"></i></div>
+        <p class="muted" style="margin-top:0">目标：从「一次性引爆」转为「可持续增长引擎」，跑出健康单位经济。</p>
+        <div class="deliv">
+          <div class="d"><b>口碑飞轮</b>作品广场 + 转介绍机制 + 家长晒娃激励常态化</div>
+          <div class="d"><b>内容沉淀</b>把高转化内容沉为「常青内容库」持续分发</div>
+          <div class="d"><b>渠道优化</b>砍掉低 ROI 渠道，把预算压到 Top 2–3 渠道</div>
+          <div class="d"><b>续费/扩科</b>启动续费 SOP + 第二品类（机器人/科学）预告</div>
+        </div>
+        <div class="callout mint" style="margin-bottom:0"><b>阶段产出：</b>形成「内容→私域→试课→首单→晒作品→转介绍」可复制闭环，并给出下一季度增长方案。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHANNELS -->
+<section id="channels">
+  <div class="sec-head">
+    <span class="eyebrow">05 · Channels</span>
+    <h2>在哪说：渠道矩阵与角色分工</h2>
+    <p class="muted">每个渠道只承担一个明确任务，不贪多。先把 2–3 个主战场打透，再扩。</p>
+  </div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>渠道</th><th>角色</th><th>主要打法</th><th>优先级</th></tr></thead>
+      <tbody>
+        <tr><td><b>小红书</b></td><td>种草 / 认知</td><td>妈妈视角图文+笔记、孩子作品晒单、KOC 铺量</td><td><span class="pill">P0 主战场</span></td></tr>
+        <tr><td><b>抖音 / 视频号</b></td><td>引爆 / 拉新</td><td>「孩子 vs AI」短视频、真实试课片段、信息流投放</td><td><span class="pill">P0 主战场</span></td></tr>
+        <tr><td><b>微信私域</b><div class="muted">企微+社群+公众号</div></td><td>承接 / 转化 / 复购</td><td>蓄水承接、社群培育、试课预约、续费触达</td><td><span class="pill">P0 转化核心</span></td></tr>
+        <tr><td><b>KOL / KOC</b></td><td>背书 / 放大</td><td>头部背书+腰尾部铺量，母婴×科技×教育三类组合</td><td><span class="pill mint">P1</span></td></tr>
+        <tr><td><b>搜索 / 应用商店</b></td><td>承接意图流量</td><td>品牌词保护、ASO、知乎问答占位</td><td><span class="pill mint">P1</span></td></tr>
+        <tr><td><b>B站 / 知乎</b></td><td>说服科技爸爸</td><td>深度测评、产品逻辑长内容</td><td><span class="pill amber">P2</span></td></tr>
+        <tr><td><b>线下 / 异业</b></td><td>信任 & 体验</td><td>学校/社区公开课、亲子科技活动、异业联名</td><td><span class="pill amber">P2 试点</span></td></tr>
+        <tr><td><b>转介绍 / 老带新</b></td><td>飞轮 / 降 CAC</td><td>双向奖励、邀请排行榜、作品分享裂变</td><td><span class="pill">P0 长期引擎</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- CONTENT CALENDAR -->
+<section id="content">
+  <div class="sec-head">
+    <span class="eyebrow">06 · Content</span>
+    <h2>内容日历与素材组合</h2>
+    <p class="muted">内容是这次宣传的弹药。按阶段配比，越往后越偏「成效证明」和「用户证言」。</p>
+  </div>
+  <div class="grid g4">
+    <div class="card"><span class="pill amber">预热期</span><h3>种草内容</h3><ul class="clean"><li>悬念短视频</li><li>痛点共鸣图文</li><li>内测招募贴</li><li>幕后花絮</li></ul></div>
+    <div class="card"><span class="pill">发布期</span><h3>引爆内容</h3><ul class="clean"><li>官宣主视频</li><li>产品功能演示</li><li>限时活动海报</li><li>KOL 测评矩阵</li></ul></div>
+    <div class="card"><span class="pill mint">增长期</span><h3>信任内容</h3><ul class="clean"><li>孩子作品集</li><li>家长真实证言</li><li>学习成效报告</li><li>对比/答疑长文</li></ul></div>
+    <div class="card"><span class="pill rose">长青库</span><h3>沉淀资产</h3><ul class="clean"><li>常见问题 FAQ</li><li>教学方法论</li><li>合规与安全说明</li><li>品牌故事</li></ul></div>
+  </div>
+  <div class="callout"><b>内容铁律：</b>每周至少产出 <b>1 条「真实孩子作品 / 真实家长证言」</b>。这类内容转化率远高于功能介绍，是整套宣传的转化主力。</div>
+</section>
+
+<!-- CHECKLIST -->
+<section id="checklist">
+  <div class="sec-head">
+    <span class="eyebrow">07 · Readiness Checklist</span>
+    <h2>需要准备什么：可勾选作战清单</h2>
+    <p class="muted">勾选进度自动保存在本地浏览器，可作为团队 launch 前的 readiness 检查。按模块分组。</p>
+  </div>
+
+  <div class="progresswrap">
+    <span class="pcount" id="pcount">0 / 0</span>
+    <div class="pbar"><i id="pbar"></i></div>
+    <span class="pcount" id="ppct">0%</span>
+  </div>
+
+  <div id="checklist-root"></div>
+</section>
+
+<!-- BUDGET -->
+<section id="budget">
+  <div class="sec-head">
+    <span class="eyebrow">08 · Budget</span>
+    <h2>钱怎么花：预算分配框架</h2>
+    <p class="muted">以下为<b>分配比例框架</b>（非绝对金额，按实际市场预算总额套用）。原则：把钱压在能直接带来付费家庭、且 ROI 可追踪的渠道。</p>
+  </div>
+  <div class="two">
+    <div class="card"><div class="chartbox"><canvas id="budgetChart"></canvas></div></div>
+    <div>
+      <ul class="clean" style="font-size:14.5px">
+        <li><b>付费投放 40%</b>：信息流+搜索，发布期与增长期为主，按 CAC 动态调节</li>
+        <li><b>KOL/KOC 25%</b>：头部背书少而精，腰尾部铺量为主</li>
+        <li><b>内容制作 15%</b>：主视频、作品案例、KV、长青内容库</li>
+        <li><b>活动/异业 10%</b>：公开课、线下体验、联名</li>
+        <li><b>工具/数据 5%</b>：埋点、CRM/私域工具、监测分析</li>
+        <li><b>机动储备 5%</b>：抓住爆点/突发优化的弹药</li>
+      </ul>
+      <div class="callout mint"><b>分配原则：</b>预热期重内容与蓄水（轻投放），发布期重付费放量，增长期把预算向 Top 2–3 高 ROI 渠道集中。每周按 CAC/ROI 复盘再分配。</div>
+    </div>
+  </div>
+</section>
+
+<!-- KPI -->
+<section id="kpi">
+  <div class="sec-head">
+    <span class="eyebrow">09 · Metrics</span>
+    <h2>怎么衡量：KPI 与转化漏斗</h2>
+    <p class="muted">北极星：<b>首单付费家庭数</b>。每一层漏斗都设目标转化率，定位卡点。下方为示意性目标，须用试点真实数据校准。</p>
+  </div>
+  <div class="two">
+    <div class="card">
+      <h3 style="margin-top:0">转化漏斗（示意）</h3>
+      <div class="funnel">
+        <div class="fstep"><div class="bar" style="width:100%">曝光 / 触达</div><div class="meta">认知层</div></div>
+        <div class="fstep"><div class="bar" style="width:78%">落地页访问 / 私域加粉</div><div class="meta">兴趣层</div></div>
+        <div class="fstep"><div class="bar" style="width:52%">试用 / 试课预约</div><div class="meta">意向层</div></div>
+        <div class="fstep"><div class="bar" style="width:34%">试课到场</div><div class="meta">体验层</div></div>
+        <div class="fstep"><div class="bar" style="width:18%">首单付费家庭 ⭐</div><div class="meta">北极星</div></div>
+        <div class="fstep"><div class="bar" style="width:11%">转介绍 / 续费</div><div class="meta">飞轮层</div></div>
+      </div>
+    </div>
+    <div class="grid g2">
+      <div class="card"><div class="muted">北极星</div><div class="kfig">首单家庭</div><div class="muted" style="font-size:12.5px">New Paying Families</div></div>
+      <div class="card"><div class="muted">效率</div><div class="kfig">CAC</div><div class="muted" style="font-size:12.5px">单个付费获客成本</div></div>
+      <div class="card"><div class="muted">体验</div><div class="kfig">试课率</div><div class="muted" style="font-size:12.5px">预约→到场→付费</div></div>
+      <div class="card"><div class="muted">口碑</div><div class="kfig">NPS</div><div class="muted" style="font-size:12.5px">+ 转介绍占比</div></div>
+    </div>
+  </div>
+  <div class="callout"><b>复盘节奏：</b>预热/发布期<b>日报</b>（曝光、加粉、预约、CAC）；增长期<b>周报</b>（漏斗各层转化、ROI、留存）；每阶段末做一次 Go/No-Go 决策会。</div>
+</section>
+
+<!-- RISK / COMPLIANCE -->
+<section id="risk">
+  <div class="sec-head">
+    <span class="eyebrow">10 · Compliance & Risk</span>
+    <h2>红线与风险：必须守住的底线</h2>
+    <p class="muted">中国 K-12 赛道，合规不是「加分项」而是「生死线」。所有对外物料发布前过一遍合规清单。</p>
+  </div>
+  <div class="grid g2">
+    <div class="card">
+      <span class="pill rose">⚖️ 政策红线</span>
+      <ul class="clean">
+        <li><b>双减：</b>严守<b>非学科（科技素养）</b>定位，绝不用 AI 讲授语数外等学科内容，文案不碰「提分/学科辅导」</li>
+        <li><b>未成年人保护：</b>未成年人模式、时长管理、内容护栏，对外强调安全</li>
+        <li><b>个人信息（PIPL）：</b>儿童信息单独同意、最小必要、隐私政策清晰可见</li>
+        <li><b>生成式 AI 合规：</b>算法/内容安全合规，输出有护栏</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="pill amber">⚠️ 市场风险与对策</span>
+      <ul class="clean">
+        <li><b>夸大宣传：</b>不承诺成绩/升学结果，只讲能力与作品成效</li>
+        <li><b>转化低于预期：</b>预设 Go/No-Go，先修转化再放量，不盲目烧钱</li>
+        <li><b>口碑反噬：</b>内测先行、真实证言，杜绝刷量虚假素材</li>
+        <li><b>竞品跟进：</b>用「方法论+作品口碑」筑壁垒，而非价格战</li>
+      </ul>
+    </div>
+  </div>
+  <div class="callout rose"><b>发布前合规闸门：</b>任何对外文案/视频，发布前必须经「<b>非学科定位 + 不夸大 + 未成年人/隐私合规</b>」三项核对清单确认，方可上线。</div>
+</section>
+
+<!-- TEAM / RACI -->
+<section id="team">
+  <div class="sec-head">
+    <span class="eyebrow">11 · Team & RACI</span>
+    <h2>谁来做：团队分工（RACI）</h2>
+    <p class="muted">R=负责执行　A=最终担责　C=被咨询　I=被知会。小团队可一人多角，但每件事必须有唯一的 A。</p>
+  </div>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>工作模块</th><th>市场负责人</th><th>内容/设计</th><th>投放/增长</th><th>私域/运营</th><th>产品/技术</th></tr></thead>
+      <tbody>
+        <tr><td>定位与信息架构</td><td>A/R</td><td>C</td><td>C</td><td>I</td><td>C</td></tr>
+        <tr><td>核心素材制作</td><td>A</td><td>R</td><td>I</td><td>I</td><td>C</td></tr>
+        <tr><td>落地页与埋点</td><td>A</td><td>C</td><td>R</td><td>I</td><td>R</td></tr>
+        <tr><td>付费投放</td><td>A</td><td>C</td><td>R</td><td>I</td><td>I</td></tr>
+        <tr><td>KOL/KOC 合作</td><td>A</td><td>C</td><td>C</td><td>R</td><td>I</td></tr>
+        <tr><td>私域承接与转化</td><td>A</td><td>I</td><td>C</td><td>R</td><td>C</td></tr>
+        <tr><td>数据复盘与 Go/No-Go</td><td>A/R</td><td>I</td><td>R</td><td>R</td><td>C</td></tr>
+        <tr><td>合规审核</td><td>A/R</td><td>R</td><td>C</td><td>C</td><td>C</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout"><b>关键节奏会议：</b>每日 15 分钟站会（发布期）｜每周增长复盘会｜每阶段末 Go/No-Go 决策会。</div>
+</section>
+
+<footer>
+  <div>
+    <b>MindDo AI · 整体宣传计划 v1.0</b> · 由市场部制定 · 2026-06-19<br>
+    本计划中的转化率、CAC、漏斗比例等为<b>示意性框架</b>，须以真实试点数据校准。合规相关请以最新法规与法务意见为准。<br>
+    <span class="muted">提示：右下角可一键打印 / 导出 PDF，方便分享给团队与管理层。</span>
+  </div>
+</footer>
+
+</main>
+
+<div class="toolbar">
+  <button class="btn ghost" onclick="resetChecklist()">重置清单</button>
+  <button class="btn" onclick="window.print()">🖨 打印 / 导出 PDF</button>
+</div>
+
+<script>
+/* ---------- Checklist data ---------- */
+const CHECKLIST = [
+  {group:"🎯 战略与信息", items:[
+    {t:"确定品牌主张 tagline 与三大信息支柱", s:"一句话 + 三支柱定稿"},
+    {t:"完成分人群话术（焦虑妈妈/科技爸爸/孩子）", s:"各自 Hook + CTA"},
+    {t:"命名、Logo、VI、品牌色与字体规范", s:"基础视觉资产"},
+    {t:"竞品信息与差异化卖点梳理", s:"为什么选我们"},
+  ]},
+  {group:"🎨 素材与内容", items:[
+    {t:"官宣主视频（约 60s）", s:"发布日核心弹药"},
+    {t:"产品功能演示 / 真实试课片段", s:"说服理性家长"},
+    {t:"主视觉 KV + 系列海报模板", s:"全渠道统一"},
+    {t:"≥1 个真实孩子作品案例 + 家长证言", s:"转化主力素材"},
+    {t:"分阶段内容日历（预热/发布/增长）", s:"排期到周"},
+  ]},
+  {group:"🌐 落地页与数据", items:[
+    {t:"官网 / 落地页上线并压测转化链路", s:"试用→试课→首单"},
+    {t:"埋点、UTM、转化追踪全打通", s:"可归因到渠道"},
+    {t:"数据看板搭好（漏斗/CAC/ROI）", s:"日报可出"},
+    {t:"ASO / 应用商店素材就绪（如适用）", s:"承接搜索流量"},
+  ]},
+  {group:"💬 私域与转化承接", items:[
+    {t:"企微 + 社群 + 公众号承接体系就位", s:"流量不漏"},
+    {t:"试课预约 / 自动跟进 SOP 配好", s:"减少人工"},
+    {t:"等待名单 / 优先体验蓄水表单", s:"预热蓄客"},
+    {t:"客服话术库与高频答疑 FAQ", s:"统一口径"},
+  ]},
+  {group:"📣 渠道与投放", items:[
+    {t:"小红书 / 抖音 / 视频号官方号搭建", s:"P0 主战场"},
+    {t:"KOL/KOC 名单、报价、档期确认", s:"母婴×科技×教育"},
+    {t:"付费投放账户、素材、定向人群就绪", s:"蓄水+相似人群"},
+    {t:"老带新 / 转介绍机制与奖励规则", s:"长期飞轮"},
+  ]},
+  {group:"🎁 活动与钩子", items:[
+    {t:"首发限时钩子设计（试课/早鸟价/双倍奖励）", s:"逼单"},
+    {t:"内测家庭招募与口碑收集（30–50 户）", s:"预热期完成"},
+    {t:"线下/异业体验活动方案（试点）", s:"P2"},
+  ]},
+  {group:"⚖️ 合规与风控", items:[
+    {t:"非学科定位文案自查（不碰学科/提分）", s:"双减红线"},
+    {t:"不夸大宣传审核（不承诺成绩/升学）", s:"广告合规"},
+    {t:"未成年人模式 + 隐私政策 + 儿童信息同意", s:"PIPL"},
+    {t:"对外物料发布前三项合规闸门确认", s:"上线前必过"},
+  ]},
+  {group:"👥 团队与节奏", items:[
+    {t:"RACI 分工与负责人到人", s:"每事唯一 A"},
+    {t:"日报/周报模板与复盘会节奏排定", s:"发布期日报"},
+    {t:"四个 Go/No-Go 决策门槛与判据明确", s:"不盲目烧钱"},
+  ]},
+];
+
+const KEY = "minddo_ai_gtm_checklist_v1";
+function loadState(){ try{return JSON.parse(localStorage.getItem(KEY))||{}}catch(e){return {}} }
+function saveState(s){ try{localStorage.setItem(KEY, JSON.stringify(s))}catch(e){} }
+
+let state = loadState();
+function render(){
+  const root = document.getElementById("checklist-root");
+  root.innerHTML = "";
+  let idx=0;
+  CHECKLIST.forEach(g=>{
+    const sec = document.createElement("div");
+    sec.className="card"; sec.style.marginBottom="14px";
+    sec.innerHTML = `<h3 style="margin-top:0">${g.group}</h3>`;
+    const grp = document.createElement("div"); grp.className="checkbox-group";
+    g.items.forEach(it=>{
+      const id = "ck"+(idx++);
+      const checked = !!state[id];
+      const label = document.createElement("label");
+      label.className = "ck"+(checked?" done":"");
+      label.innerHTML = `<input type="checkbox" ${checked?"checked":""} data-id="${id}"><span class="t">${it.t}<small>${it.s}</small></span>`;
+      grp.appendChild(label);
+    });
+    sec.appendChild(grp); root.appendChild(sec);
+  });
+  root.querySelectorAll('input[type=checkbox]').forEach(cb=>{
+    cb.addEventListener("change", e=>{
+      state[e.target.dataset.id]=e.target.checked;
+      e.target.closest(".ck").classList.toggle("done", e.target.checked);
+      saveState(state); updateProgress();
+    });
+  });
+  updateProgress();
+}
+function totalItems(){ return CHECKLIST.reduce((a,g)=>a+g.items.length,0); }
+function updateProgress(){
+  const total = totalItems();
+  const done = Object.values(state).filter(Boolean).length;
+  const pct = total? Math.round(done/total*100):0;
+  document.getElementById("pcount").textContent = done+" / "+total;
+  document.getElementById("ppct").textContent = pct+"%";
+  document.getElementById("pbar").style.width = pct+"%";
+}
+function resetChecklist(){
+  if(confirm("确定清空所有勾选进度？")){ state={}; saveState(state); render(); }
+}
+render();
+
+/* ---------- Budget chart ---------- */
+const ctx = document.getElementById("budgetChart");
+new Chart(ctx,{
+  type:"doughnut",
+  data:{
+    labels:["付费投放 40%","KOL/KOC 25%","内容制作 15%","活动/异业 10%","工具/数据 5%","机动储备 5%"],
+    datasets:[{
+      data:[40,25,15,10,5,5],
+      backgroundColor:["#6c8bff","#a06bff","#37e0c2","#ffce5c","#ff7a93","#5b6790"],
+      borderColor:"#0b1020", borderWidth:3
+    }]
+  },
+  options:{
+    plugins:{legend:{position:"bottom", labels:{color:"#cdd6f5", font:{family:"Noto Sans SC", size:12}, padding:12, boxWidth:14}}},
+    cutout:"58%"
+  }
+});
+
+/* ---------- Scrollspy ---------- */
+const links = [...document.querySelectorAll('#navlinks a')];
+const secs = links.map(a=>document.querySelector(a.getAttribute('href')));
+const obs = new IntersectionObserver(entries=>{
+  entries.forEach(en=>{
+    if(en.isIntersecting){
+      const id = "#"+en.target.id;
+      links.forEach(a=>a.classList.toggle("active", a.getAttribute("href")===id));
+    }
+  });
+},{rootMargin:"-45% 0px -50% 0px"});
+secs.forEach(s=>s&&obs.observe(s));
+</script>
+</body>
+</html>
